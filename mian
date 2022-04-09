@@ -1,0 +1,53 @@
+package automata;
+
+import java.util.*;
+import java.lang.*;
+public class Main {
+    public static void main(String[] angs) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("请输入状态个数：");
+        int statenumber = scanner.nextInt();
+        char[] state = new char[statenumber];
+        System.out.println("请依次输入每个状态");
+        String s;
+        for (int i = 0; i <= statenumber - 1; i++) {
+            s = scanner.next();
+            state[i] = s.charAt(0);
+        }
+        Arrays.sort(state);
+        /*for (int i = 0 ; i <= inputnumber-1 ; i++){
+            System.out.println(state[i] );
+        }*/
+
+        System.out.println("请输入输入符号个数：");
+        int inputnumber = scanner.nextInt();
+        int[] input = new int[inputnumber];
+        System.out.println("请依次输入每个输入数字");
+        for (int i = 0; i <= inputnumber - 1; i++) {
+            input[i] = scanner.nextInt();
+        }
+        Arrays.sort(input);
+        /*for (int i = 0 ; i <= inputnumber-1 ; i++){
+            System.out.println(input[i]);
+        }*/
+
+        //以下为NFA输入
+        int[][] nfain = new int[statenumber][statenumber];
+        for (int i = 0; i <= statenumber - 1; i++) {
+            for (int j = 0; j <= statenumber - 1; j++) {
+                System.out.println("状态" + state[i] + "转换为状态" + state[j] + "需要输入的条件是(无关系输入0)");
+                nfain[i][j] = scanner.nextInt();
+            }
+        }
+        //输入NFA输出
+        for (int i = 0; i <= statenumber - 1; i++) {
+            for (int j = 0; j <= statenumber - 1; j++) {
+                System.out.println(nfain[i][j]);
+        //以下为NFA转换为DFA
+
+
+                scanner.close();
+            }
+        }
+    }
+}
